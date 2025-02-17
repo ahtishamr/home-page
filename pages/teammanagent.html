@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple CRUD Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        th {
+    text-align: center;
+}
+
+.glyphicon {
+    margin-right: 10px;
+}
+
+.crud-table {
+    max-width: 800px;
+    padding: 40px 0;
+}
+
+.form-alert {
+    margin-top: 10px;
+}
+
+.form-inline {
+    margin-bottom: 20px;
+}
+
+	
+	
+
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="namesCtrl">
+    <div class="container crud-table">
+        <div class="clearfix">
+            <div class="form-inline pull-left">
+                <button class="btn btn-success" ng-click="addUser()">
+                    <span class="glyphicon glyphicon-plus"></span> Add more user
+                </button>
+            </div>
+            <div class="form-inline pull-right">
+                Search by name: 
+                <div class="form-group">
+                    <input type="text" ng-model="searchName" placeholder="Type name to search" class="form-control">
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th ng-click="orderBy('name')">Name</th>
+                    <th ng-click="orderBy('country')">Country</th>
+                    <th ng-click="orderBy('salary')">Salary</th>
+                    <th ng-click="orderBy('email')">Email</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr ng-repeat="user in resultUser = (users | filter: {name: searchName}) | orderBy: order">
+                    <td>{{user.name}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.salary}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="editUser(user)">Edit</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="deleteUser(user)">Delete</button>
+                    </td>
+                </tr>
+                <tr class="text-left">
+                    <td colspan="2"><b>Total</b></td>
+                    <td class="text-center">{{ resultUser | totalSalary:'salary' }}</td>
+                    <td colspan="3"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="crude-form__wrapper" ng-show="triggerForm">
+            <h3 ng-show="editForm">Edit user</h3>
+            <h3 ng-show="addForm">Add user</h3>
+            <form name="userForm" ng-model="userForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="editName" class="form-control" type="text" name="name" ng-model="crudFormName" placeholder="Edit name" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input id="editCounty" class="form-control" type="text" name="country" ng-model="crudFormCountry" placeholder="Edit country" required>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input id="editSalary" class="form-control" type="number" name="salary" ng-model="crudFormSalary" placeholder="Edit salary" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="editEmail" class="form-control" type="email" name="email" ng-model="crudFormEmail" ng-change="checkEmail(editUserId)" placeholder="Edit email" required>
+                </div>
+                <button ng-click="saveEdit(editUserId)" ng-disabled="userForm.$invalid || emailExisted" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-pencil"></i> Save change
+                </button>
+                <button ng-click="triggerForm = false" class="btn btn-primary">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+
+myApp.controller('namesCtrl', function($scope, $filter) {
+		$scope.triggerForm = false;
+		$scope.editForm = false;
+		$scope.addForm = false;
+		$scope.order = 'name';
+
+    $scope.users = [
+        {id: 1, name:'Jani',country:'Norway', salary: 5, email: 'Guithay65@gustr.com'},
+        {id: 2, name:'Carl',country:'Sweden', salary: 24, email: 'cluphetret@hotmail.com'},
+        {id: 3, name:'Margareth',country:'England', salary: 5, email: 'phitrudreh@yahoo.com'},
+        {id: 4, name:'Hege',country:'Norway', salary: 15, email: 'thapripich@gmail.com'},
+        {id: 5, name:'Joe',country:'Denmark', salary: 20, email: 'qakyssaxisu-3687@yopmail.com'}
+        ];
+  
+  	
+  
+    $scope.orderBy = function(filter){
+    	$scope.order = filter;
+    };
+	
+		$scope.editUser = function(user){
+			var index = $scope.users.indexOf(user);
+			$scope.triggerForm = true;
+			$scope.editForm = true;
+			$scope.addForm = false;
+			$scope.emailExisted = false;
+			$scope.editUserId = index;
+			$scope.crudFormName = $scope.users[index].name;
+			$scope.crudFormCountry = $scope.users[index].country;
+			$scope.crudFormSalary = $scope.users[index].salary;
+			$scope.crudFormEmail = $scope.users[index].email;
+		};
+		
+		$scope.saveEdit = function(userId){
+			if(userId == 'new'){
+				var newUser = {
+					name: $scope.crudFormName,
+					country: $scope.crudFormCountry,
+					salary: $scope.crudFormSalary,
+					email: $scope.crudFormEmail					
+				}
+				$scope.users.push(newUser);
+			}
+			else {
+				$scope.users[userId].name = $scope.crudFormName;
+				$scope.users[userId].country = $scope.crudFormCountry;
+				$scope.users[userId].salary = $scope.crudFormSalary;
+				$scope.users[userId].email = $scope.crudFormEmail;				
+			}
+			
+			$scope.triggerForm = false;
+			$scope.editForm = false;
+			$scope.editUserId = 0;			
+		}
+	
+		$scope.deleteUser = function(user) {
+			var index = $scope.users.indexOf(user);
+			$scope.users.splice(index, 1);  	
+		}
+  	
+		$scope.addUser = function(){
+			$scope.editUserId = 'new';
+			$scope.triggerForm = true;
+			$scope.editForm = false;
+			$scope.addForm = true;
+			$scope.emailExisted = false;
+			$scope.userForm.$setUntouched();
+			$scope.crudFormName = '';
+			$scope.crudFormCountry = '';
+			$scope.crudFormSalary = '';
+			$scope.crudFormEmail = '';			
+		}
+		$scope.checkEmail = function(userId){
+			
+			if(userId === 'new' || $scope.crudFormEmail !== $scope.users[userId].email){
+				$scope.emailExisted = $scope.users.some(function(user){
+					return user.email === $scope.crudFormEmail;
+				});				
+			}
+		}
+});
+
+myApp.filter('totalSalary', function(){
+  return function(data, key){
+			if(angular.isUndefined(data) && angular.isUndefined(key))
+				return 0;
+      var total = 0;
+      angular.forEach(data, function(v, k){
+				total+=parseInt(v[key]);
+			});
+      return total;
+  }
+});
+
+
+        
+        </script>
+</body>
+</html>

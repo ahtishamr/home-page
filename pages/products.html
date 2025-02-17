@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Document</title>
+    <style>
+        .shop_section .heading_container {
+  margin-bottom: 20px;
+}
+
+.shop_section .box {
+  background-color: #eeeeee;
+  position: relative;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.shop_section .box a {
+  color: #000000;
+}
+
+.shop_section .box .img-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 30px;
+  height: 245px;
+}
+
+.shop_section .box .img-box img {
+  max-width: 100%;
+  max-height: 145px;
+}
+
+.shop_section .box .detail-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.shop_section .box .detail-box h6 span {
+  color: #db4f66;
+}
+
+.shop_section .box .new {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100%;
+  font-size: 15px;
+}
+
+.shop_section .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+}
+
+.shop_section .btn-box a {
+  display: inline-block;
+  padding: 10px 40px;
+  background-color: #f16179;
+  color: #ffffff;
+  border: 1px solid #f16179;
+  border-radius: 5px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.shop_section .btn-box a:hover {
+  background-color: transparent;
+  color: #f16179;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#"><img src="./images/sports.png" alt=""></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./pages/gamescard.html">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./pages/shopping.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+                
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./images/sports.png" alt="Profile Avatar" class="avatar">
+                    </a>
+                    <ul class="dropdown-menu dp-dropdown" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="./pages/editprofile.html">My Profile</a></li>
+                        
+                        <li><a class="dropdown-item" href="./pages/player.html">MY Team</a></li>
+                        <li><a class="dropdown-item" href="./pages/password.html">Change Password</a></li>
+                        <li><a class="dropdown-item " href="./pages/edit.html">Edit Team</a></li>
+                        <li><a class="dropdown-item bg-danger text-white" href="./pages/teammanagent.html">Log Out</a></li>
+                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="shop_section layout_padding">
+        <div class="container">
+          <div class="heading_container heading_center">
+            <h2 class="text-center pt-4">
+              Latest Products
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p1.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Ring
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $200
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p2.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Watch
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $300
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p3.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Teddy Bear
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $110
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p4.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Flower Bouquet
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $45
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p5.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Teddy Bear
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $95
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p6.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Flower Bouquet
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $70
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p7.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Watch
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $400
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="box">
+                <a href="./buy.html">
+                  <div class="img-box">
+                    <img src="images/p8.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h6>
+                      Ring
+                    </h6>
+                    <h6>
+                      Price
+                      <span>
+                        $450
+                      </span>
+                    </h6>
+                  </div>
+                  <div class="new">
+                    <span>
+                      New
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+</body>
+</html>

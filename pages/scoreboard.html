@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Scoreboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f380;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+
+            background-image: url(../images/HD-Cool-Sports-Images.jpg);
+            
+        }
+
+        .scorecard {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.521);
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color:yellow;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        .tab-buttons button.active {
+            background-color:yellow;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: yellow;
+            color: black;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        .bold{
+            color: red;
+
+        }
+        .main{
+            background-color: black;
+            width: 100%;
+            height: 80px;
+            border-radius: 10px;
+            
+           
+            padding-top: 32px;
+        }
+        .para{
+            color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#"><img src="./images/sports.png" alt=""></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./pages/gamescard.html">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./pages/shopping.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+                
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-white p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./images/sports.png" alt="Profile Avatar" class="avatar">
+                    </a>
+                    <ul class="dropdown-menu dp-dropdown" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="./pages/editprofile.html">My Profile</a></li>
+                        
+                        <li><a class="dropdown-item" href="./pages/player.html">MY Team</a></li>
+                        <li><a class="dropdown-item" href="./pages/password.html">Change Password</a></li>
+                        <li><a class="dropdown-item " href="./pages/edit.html">Edit Team</a></li>
+                        <li><a class="dropdown-item bg-danger text-white" href="./pages/teammanagent.html">Log Out</a></li>
+                       
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="scorecard">
+   <div>
+    <h1 class="main">Live Cricket Scoreboard</h1>
+   </div>
+
+    <p class="para">
+        <b class="bold">Toss:</b>Team A won the toss and elected to bat 
+    </p>
+    <p class="para">Live from Qadafi stadium lahore</p>
+
+    <!-- Tab Buttons -->
+    <div class="tab-buttons">
+        <button class="tab-link active" onclick="openTab(event, 'batting')">Team A (Batting)</button>
+        <button class="tab-link" onclick="openTab(event, 'bowling')">Team B (Bowling)</button>
+    </div>
+
+    <!-- Batting Tab -->
+    <div id="batting" class="tab-content active">
+        <h2><b>Team A           (145/5) </b></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Runs</th>
+                    <th>Balls</th>
+                    <th>4s</th>
+                    <th>6s</th>
+                    <th>Strike Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Player 1</td><td>45</td><td>32</td><td>6</td><td>2</td><td>140.6</td></tr>
+                <tr><td>2</td><td>Player 2</td><td>22</td><td>28</td><td>3</td><td>0</td><td>78.6</td></tr>
+                <tr><td>3</td><td>Player 3</td><td>18</td><td>20</td><td>2</td><td>1</td><td>90.0</td></tr>
+                <tr><td>4</td><td>Player 4</td><td>10</td><td>12</td><td>1</td><td>0</td><td>83.3</td></tr>
+                <tr><td>5</td><td>Player 5</td><td>30</td><td>25</td><td>4</td><td>1</td><td>120.0</td></tr>
+                
+                <tr><td>6</td><td>Player 6</td><td>45</td><td>32</td><td>6</td><td>2</td><td>140.6</td></tr>
+                <tr><td>7</td><td>Player 7</td><td>22</td><td>28</td><td>3</td><td>0</td><td>78.6</td></tr>
+                <tr><td>8</td><td>Player 8</td><td>18</td><td>20</td><td>2</td><td>1</td><td>90.0</td></tr>
+                <tr><td>9</td><td>Player 9</td><td>10</td><td>12</td><td>1</td><td>0</td><td>83.3</td></tr>
+                <tr><td>10</td><td>Player 10</td><td>30</td><td>25</td><td>4</td><td>1</td><td>120.0</td></tr>
+                <tr><td>11</td><td>Player 11</td><td>10</td><td>12</td><td>1</td><td>0</td><td>83.3</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bowling Tab -->
+    <div id="bowling" class="tab-content">
+        <h3>Bowling Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Bowler</th>
+                    <th>Overs</th>
+                    <th>Runs</th>
+                    <th>Wickets</th>
+                    <th>Economy</th>
+                    <th>Dot Balls</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Bowler 1</td><td>4</td><td>25</td><td>2</td><td>6.25</td><td>10</td></tr>
+                <tr><td>2</td><td>Bowler 2</td><td>3</td><td>18</td><td>1</td><td>6.00</td><td>8</td></tr>
+                <tr><td>3</td><td>Bowler 3</td><td>4</td><td>30</td><td>0</td><td>7.50</td><td>5</td></tr>
+                <tr><td>4</td><td>Bowler 4</td><td>2</td><td>10</td><td>1</td><td>5.00</td><td>4</td></tr>
+                <tr><td>5</td><td>Bowler 5</td><td>3</td><td>22</td><td>1</td><td>7.33</td><td>6</td></tr>
+                <tr><td>6</td><td>Bowler 6</td><td>2</td><td>10</td><td>1</td><td>5.00</td><td>4</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function openTab(event, tabName) {
+        // Hide all tab content
+        var tabContent = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+
+        }
+
+        // Remove "active" class from all buttons
+        var tabLinks = document.getElementsByClassName("tab-link");
+        for (var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
+
+        // Show the selected tab and set the button as active
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
